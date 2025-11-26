@@ -136,33 +136,174 @@
 //         }
 //     }
 // }
-using System;
+// using System;
 
-namespace ConsoleApp1
+// namespace ConsoleApp1
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             //Task1
+//             Operators op = new Operators();
+
+//             // Calling methods
+//             op.Add(11, 5);
+//             op.Subtract(13, 5);
+//             op.Multiply(12, 5);
+//             op.Divide(10, 5);
+
+//             // Calling OddEvenFinder
+//             op.OddEvenFinder(7);
+//             op.OddEvenFinder(10);
+
+//             //Task 2
+//             NullOperations nullOps = new NullOperations();
+
+//             nullOps.PerformNullChecks();
+
+//             Console.ReadLine();
+//         }
+//     }
+// }
+
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        //Task 1
+        // Create bank account object
+        BankAccount Account = new BankAccount("NKN390828J", 500);
+
+        Console.WriteLine($"Account Number: {Account.AccountNumber}");
+        Console.WriteLine($"Initial Balance: {Account.Balance}");
+
+        // Deposit money
+        Account.Deposit(300);
+        Console.WriteLine($"Balance after deposit: {Account.Balance}");
+
+        // Withdraw money
+        Account.Withdraw(200);
+        Console.WriteLine($"Balance after withdrawal: {Account.Balance}");
+
+        //-------------------
+        //Task 2
+        
+        // Creating Car object
+        Car car = new Car()
         {
-            //Task1
-            Operators op = new Operators();
+            Brand = "Yamaha"
+            Speed = 100,
+            Type = "Sports"
+            
+        };
 
-            // Calling methods
-            op.Add(11, 5);
-            op.Subtract(13, 5);
-            op.Multiply(12, 5);
-            op.Divide(10, 5);
+        // Creating Motorcycle object
+        Motorcycle Motorbike = new Motorcycle()
+        {
+            Brand = "Toyota"
+            Speed = 350,
+            Seats = 4
+        };
 
-            // Calling OddEvenFinder
-            op.OddEvenFinder(7);
-            op.OddEvenFinder(10);
+        // Calling base class methods (reusability)
+        car.Start();
+        car.DisplayInfo();
+        car.Stop();
 
-            //Task 2
-            NullOperations nullOps = new NullOperations();
+        Console.WriteLine();
 
-            nullOps.PerformNullChecks();
+        Motorbike.Start();
+        Motorbike.DisplayInfo();
+        Motorbike.Stop();
 
-            Console.ReadLine();
-        }
+        //Task 3
+        Printer Printer = new Printer();
+
+        Printer.Print("Hello World");     
+        Printer.Print(909);                
+        Printer.Print("Repeat Me", 7); 
+
+        //Task 3
+
+        NepaliTeacher NepaliTeach = new NepaliTeacher();
+        NepaliTeach.Name = "Mrs. Diya";
+        Console.WriteLine(NepaliTeach.Name);
+        NepaliTeach.Teaching();
+        NepaliTeach.SalaryInfo();
+
+        Console.WriteLine();
+
+        EnglishTeacher EnglishTeach = new EnglishTeacher();
+        EnglishTeach.Name = "Ms. Monika";
+        Console.WriteLine(EnglishTeach.Name);
+        EnglishTeach.Teaching();
+        EnglishTeach.SalaryInfo();
+
+
+        Cars carr = new Cars();
+        Bikes bike = new Bikes();
+
+        Console.WriteLine("Car:");
+        carr.Display();
+        carr.StartEngine();
+        carr.StopEngine();
+
+        Console.WriteLine();
+
+        Console.WriteLine("Bike:");
+        bike.Display();
+        bike.StartEngine();
+        bike.StopEngine();
+
+        // Task 5 OOP Derived Classes
+
+        Laptop Laptop = new Laptop("Acer", 85000);
+        Smartphone phone = new Smartphone("Apple", 50000);
+
+        Console.WriteLine("Laptop:");
+        Laptop.ShowInfo();
+        Laptop.TurnOnBattery();
+
+        Console.WriteLine();
+
+        Console.WriteLine("Smartphone:");
+        phone.ShowInfo();
+        phone.EnableCamera();
+
+        //Task 5 OOP
+        ElectronicsStore_list Store_list = new ElectronicsStore_list();
+
+        Laptop laptop = new Laptop("Acer", 85000);
+        Smartphone phones = new Smartphone("Apple", 50000);
+
+        // Add devices
+        Store_list.AddDevice(laptop);
+        Store_list.AddDevice(phones);
+
+        Console.WriteLine();
+
+        // Display all devices and call child-specific methods
+        Store_list.ShowAllDeviceDetails();
+
+        // Remove a device
+        Store_list.RemoveDevice(Laptop);
+
+        Console.WriteLine();
+        Store_list.ShowAllDeviceDetails();
+
+    
+        // 2. Create Laptop and Smartphone objects
+        Laptop laptoplist = new Laptop("Acer", 85000);
+        Smartphone phoneList = new Smartphone("Apple", 50000);
+
+        // 3. Add devices to the Store_list
+        Store_list.AddDevice(laptoplist);
+        Store_list.AddDevice(phoneList);
+
+        Console.WriteLine();
+
+        // 4. Display all device details including child-specific behavior
+        Store_list.ShowAllDeviceDetails();
     }
 }
